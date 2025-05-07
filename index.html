@@ -1,10 +1,12 @@
 <script>
+  const isTelegramInAppBrowserAndroid = () => {
+    return typeof window !== 'undefined' && typeof window.TelegramWebview !== 'undefined';
+  };
+
   window.addEventListener('load', ()=>{
     document.querySelector('.useragent').append(window.navigator.userAgent)
 
-    const isTelegram = window.TelegramWebview ? 'true' : 'false'
-
-    document.querySelector('.isTelegram').append(isTelegram)
+    document.querySelector('.isTelegram').append(isTelegramInAppBrowserAndroid())
   })
 </script>
 
